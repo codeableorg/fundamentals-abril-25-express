@@ -1,18 +1,17 @@
 import express from "express";
+import expressEjsLayouts from "express-ejs-layouts";
 
 // creamos nuestra aplicacion Express
 const app = express();
 const PORT = 3000;
 
 // agregamos middleware para enviar archivos estaticos
-// app.use('/static', express.static('public'))
+app.use('/static', express.static('public'))
 
 // configuramos el motor de plantillas ejs
 app.set("view engine", "ejs");
-// app.set('views', './views')
-
-// agregar la ruta "/" y el metodo GET a mi aplicacion
-// devuelva una cadena diciendo Hola mundo
+// usamos middleware de layouts
+app.use(expressEjsLayouts);
 
 app.get("/", (req, res) => {
   console.log(`${req.method} ${req.url}`);
