@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>App Notes</h1>
+    <div class="note-container">
+      <% notes.map(note => { %>
+
+      <div class="note">
+        <p class="note__title"><%= note.title %></p>
+        <p class="note__content"><%= note.content %></p>
+        <form action="/notes/<%= note.id %>" >
+          <button type="submit">X</button>
+        </form>
+      </div>
+
+      <% }) %>
+    </div>
+  </body>
+</html>
