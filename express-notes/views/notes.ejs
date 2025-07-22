@@ -8,13 +8,24 @@
   </head>
   <body>
     <h1>App Notes</h1>
+    <form class="new-note-form" action="/notes" method="post">
+      <label for="title">Ingrese el titulo de la nota nueva</label>
+      <input type="text" name="title" id="" placeholder="nota ejemplo" />
+      <label for="content">Ingrese el contenido de la nota nueva</label>
+      <textarea
+        name="content"
+        id=""
+        placeholder="contenido de la nota ejemplo"
+      ></textarea>
+      <button type="submit">Enviar</button>
+    </form>
     <div class="note-container">
       <% notes.map(note => { %>
 
       <div class="note">
         <p class="note__title"><%= note.title %></p>
         <p class="note__content"><%= note.content %></p>
-        <form action="/notes/<%= note.id %>" >
+        <form action="/notes/<%= note.id %>">
           <button type="submit">X</button>
         </form>
       </div>
